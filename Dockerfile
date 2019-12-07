@@ -18,10 +18,8 @@ RUN powershell -Command \
     mkdir telegraf.d \
   ; .\telegraf.exe --service install --config C:\telegraf\telegraf.conf --config-directory C:\telegraf\telegraf.d
 COPY telegraf.conf .
-RUN powershell -Command \
-    Start-Service telegraf
 
 SHELL ["C:\\LogMonitor\\LogMonitor.exe", "powershell.exe"]
 EXPOSE 9273
 
-ENTRYPOINT "powershell.exe -Command 'while ($true) { Start-Sleep -Seconds 10 }'"
+ENTRYPOINT "powershell.exe -Command 'Start-Service telegraf; while ($true) { Start-Sleep -Seconds 10 }'"
