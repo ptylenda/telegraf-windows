@@ -1,0 +1,12 @@
+{
+  "LogConfig": {
+    "sources": [
+      {
+        "type": "File",
+        "directory": "c:\\telegraf\\",
+        "filter": "*.log",
+        "includeSubdirectories": false
+      }
+    ]
+  }
+}
